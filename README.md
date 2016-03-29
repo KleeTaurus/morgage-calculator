@@ -4,7 +4,7 @@
 
 **使用方法:**
 
-```
+```python
 # 等额本金计算
 from calculator import ACCalculator
 
@@ -20,7 +20,7 @@ for x in repayments:
     print x
 ```
 
-```
+```python
 # 等额本息计算
 from calculator import ACPICalculator
 
