@@ -1,43 +1,24 @@
 # -*- coding: utf-8 -*-
 import unittest
-from calculator import (ACCalculator, ACPICalculator)
+from calculator import (ACMCalculator, ACPIMCalculator)
 
 
-class LoanCalculatorTest(unittest.TestCase):
+class MorgageCalculatorTest(unittest.TestCase):
 
-    def setUp(self):
-        self.ac_calc = ACCalculator()
-        self.acpi_calc = ACPICalculator()
+    def testACM25Years(self):
+        r = ACMCalculator(87 * 10000, 25, 4.9 / 100).calculate()
 
-    def test25YearsACLoan(self):
-        total_loan = 87 * 10000
-        years = 25
-        annual_rate = 4.9 / 100
+        self.assertEqual(r[11], 6334.08)
+        self.assertEqual(r[23], 6191.98)
+        self.assertEqual(r[149], 4699.93)
 
-        repayments = self.ac_calc.calculate(
-            total_loan, years, annual_rate)
+    def testACPIM25Years(self):
+        r = ACPIMCalculator(87 * 10000, 25, 4.9 / 100).calculate()
+        self.assertEqual(r, 5035.37)
 
-        self.assertEqual(repayments[10], 6334.08)
-        self.assertEqual(repayments[22], 6191.98)
-        self.assertEqual(repayments[148], 4699.93)
-
-    def test25YearsACPILoan(self):
-        total_loan = 87 * 10000
-        years = 25
-        annual_rate = 4.9 / 100
-
-        repayment = self.acpi_calc.calculate(
-            total_loan, years, annual_rate)
-        self.assertEqual(repayment, 5035.37)
-
-    def test30YearsACPILoan(self):
-        total_loan = 87 * 10000
-        years = 30
-        annual_rate = 4.9 / 100
-
-        repayment = self.acpi_calc.calculate(
-            total_loan, years, annual_rate)
-        self.assertEqual(repayment, 4617.32)
+    def testACPIM30Years(self):
+        r = ACPIMCalculator(87 * 10000, 30, 4.9 / 100).calculate()
+        self.assertEqual(r, 4617.32)
 
 
 if __name__ == '__main__':
