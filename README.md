@@ -4,6 +4,8 @@
 
 该计算器支持 **等额本金** (Average Capital) 及 **等额本息** (Average Capitital Plus Interest) 两种计算方式。采用 **等额本金** 的还款方式，开始每月还款较多，之后逐月递减。采用 **等额本息** 的还款方式，每月还款固定，但最后需要支付的总利息相对较多。
 
+这里有篇关于两种计算方法的详细介绍[等额本金和等额本息](http://www.lingcloud.com/ipy/AverageCapital.html)
+
 ## 使用
 
 ```python
