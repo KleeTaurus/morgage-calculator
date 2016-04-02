@@ -46,8 +46,8 @@ class ACMCalculator(MorgageCalculator):
         u"""计算每月还款金额, 采用等额本金还款法每月还款金额不固定, 每月还款金额存入字典."""
         self.monthly_repayments = {}
 
-        for i in range(1, self.months + 1):
-            monthly_repayment = self._calculate_monthly_repayment(i)
+        for i in range(self.months):
+            monthly_repayment = self._calculate_monthly_repayment(i + 1)
             self.monthly_repayments[i] = round(monthly_repayment, 2)
 
         return self.monthly_repayments
